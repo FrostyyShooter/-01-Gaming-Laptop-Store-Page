@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- title should be the product name -->
+		<title>Frostyy's Electronics | Asus Laptops</title>
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<script src="script.js" defer></script>
+	</head>
+	<!-- MAIN COMMENT -->
+	<!-- 
+    the body should include a container div that holds the entire page. still need to see if a grid or flexbox would be better for this
+    the container should include a nav, aside, main, and footer
+    as for the responsive design, desktop and tablet versions should be mostly the same. the mobile version should have stuff in hamburger menus.
+    -->
+	<body class="dark-mode">
+		<div class="container">
+			<nav>
+				<!--
+                the nav should include a logo for the site that functions as a home button
+                dropdown menu for categories
+                it should also include a search bar
+                an account button
+                a cart button
+                a wishlist button
+                and a hamburger menu for mobile
+                -->
+				<a href="#"
+					><img
+						src="assets/images/FrostyyShooter.png"
+						alt="Frostyy's Electronics"
+				/></a>
+				<div class="nav-center-content">
+					<!-- this should be a search bar -->
+					<form action="" id="searchForm">
+						<input
+							type="text"
+							placeholder="Search..."
+							id="searchInput" />
+						<button type="submit" id="searchButton">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="2rem"
+								width="2rem"
+								viewBox="0 -960 960 960">
+								<path
+									d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+							</svg>
+						</button>
+					</form>
+				</div>
+				<div class="nav-right-content">
+					<!-- this should be a dropdown menu with a account icon/symbol -->
+					<div class="account-menu">
+						<button id="accountButton">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 -960 960 960">
+								<path
+									d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" />
+							</svg>
+						</button>
+						<div class="account-list">
+							<ul>
+								<li><button>Sign In</button></li>
+								<li><a href="#">Register</a></li>
+								<li><a href="#">My orders</a></li>
+								<li><a href="#">My account</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- this should be a dropdown menu with a heart icon/symbol -->
+					<div class="wishlist-menu">
+						<button id="wishlistButton">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 -960 960 960">
+								<path
+									d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+							</svg>
+						</button>
+					</div>
+					<!-- this should be a dropdown menu with a cart icon/symbol -->
+					<div class="cart-menu">
+						<button id="cartButton">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 -960 960 960">
+								<path
+									d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+							</svg>
+						</button>
+						<div class="cart-list" style="display: none">
+							<!-- <div class="cart-list"> -->
+							<!-- add dynamic list items that will be added through js when the customer adds something to there cart -->
+							<button>View cart</button>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<!-- ------------------------------------------------------------------------------------------------ -->
+			<aside>
+				<button id="categoryButton">
+					Menu
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						height="24px"
+						width="24px"
+						viewBox="0 -960 960 960"
+						fill="#000">
+						<path d="M480-360 280-560h400L480-360Z" />
+					</svg>
+				</button>
+				<div class="category-menu">
+					<ul>
+						<li>Lorem</li>
+						<li>Lorem</li>
+						<li>Lorem</li>
+						<li>Lorem</li>
+						<li>Lorem</li>
+					</ul>
+				</div>
+				<!-- pathway to the current page -->
+				<span>Home</span><span>Laptops</span><span>Gaming Laptops</span>
+			</aside>
+			<main>
+				<div class="main-content-header">
+					<h1>Gaming Laptops</h1>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Ex, laborum sit! Quis laudantium harum totam, iste esse
+						quaerat magnam rem rerum similique itaque quo eligendi.
+						Molestiae ex magnam vitae hic enim praesentium quo error
+						cum, suscipit et quaerat dolor obcaecati qui laboriosam
+						sint ea porro modi, odio deserunt at sit? Accusantium
+						facilis pariatur qui nostrum labore est consequuntur
+						ipsa quibusdam deleniti consectetur sit cumque dolores
+						eaque nobis quae nemo et assumenda explicabo inventore,
+						beatae corporis molestias excepturi temporibus
+						distinctio. Facere totam et veritatis quia incidunt!
+						Nihil minus, unde quo, dolor doloremque iure voluptates
+						dicta vel possimus placeat facere porro consequatur!
+					</p>
+				</div>
+				<div class="content-container">
+					<div class="filter-list"></div>
+					<div class="products">
+						<div class="sort-menu">
+							<p>Sort by:</p>
+							<ul>
+								<li>Date: Newest first</li>
+								<li>Date: Oldest first</li>
+								<li>Price: Highest first</li>
+								<li>Price: Lowest first</li>
+							</ul>
+						</div>
+						<!-- want at least 10 cards -->
+						<div class="product-card">
+							<img src="" alt="" />
+							<h2></h2>
+							<p class="price"></p>
+							<ul>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- filter list -->
+				</div>
+			</main>
+			<footer>
+				<!-- the footer should include a list of links to the different categories of products -->
+				<!-- the footer should also include a language selection dropdown menu -->
+				<!-- footer should also include a light and dark mode selector -->
+			</footer>
+		</div>
+	</body>
+</html>
