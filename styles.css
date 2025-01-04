@@ -168,14 +168,6 @@ form {
 	border-bottom-right-radius: 0.75em;
 }
 /* second nav bar */
-aside {
-	border: 1px solid red;
-	padding-inline: 5%;
-}
-aside span {
-	background-color: red;
-	padding-inline: 0.5em;
-}
 #categoryButton {
 	position: relative;
 }
@@ -186,6 +178,30 @@ aside span {
 	color: #157efb;
 	background-color: #000;
 	padding: 1em;
+}
+.main-category {
+	list-style: none;
+}
+.sub-category {
+	display: inline-block;
+	list-style: none;
+	margin-left: 1rem;
+}
+.sub-category li {
+	list-style: none;
+	margin-left: 1rem;
+}
+
+aside {
+	border: 1px solid red;
+	padding-inline: 5%;
+}
+.pathway {
+	display: inline;
+}
+.pathway li {
+	display: inline-block;
+	list-style: none;
 }
 
 /* main content */
