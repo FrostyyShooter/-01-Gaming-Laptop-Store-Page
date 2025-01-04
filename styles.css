@@ -167,7 +167,15 @@ form {
 	border-bottom-left-radius: 0.75em;
 	border-bottom-right-radius: 0.75em;
 }
-/* header */
+/* second nav bar */
+aside {
+	border: 1px solid red;
+	padding-inline: 5%;
+}
+aside span {
+	background-color: red;
+	padding-inline: 0.5em;
+}
 #categoryButton {
 	position: relative;
 }
@@ -178,6 +186,13 @@ form {
 	color: #157efb;
 	background-color: #000;
 	padding: 1em;
+}
+
+/* main content */
+main {
+	width: 90%;
+	margin-inline: auto;
+	border: 1px solid red;
 }
 
 /* CSS classes for JS */
