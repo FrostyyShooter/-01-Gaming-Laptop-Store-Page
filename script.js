@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	const accountMenu = document.querySelector(".account-list");
 	const category = document.getElementById("categoryButton");
 	const categoryMenu = document.querySelector(".category-menu");
-	const categorySvg = document.getElementById("categoryButtonIcon");
 
 	account.addEventListener("click", function (event) {
 		event.stopPropagation();
@@ -13,12 +12,43 @@ document.addEventListener("DOMContentLoaded", function () {
 	category.addEventListener("click", function (event) {
 		event.stopPropagation();
 		categoryMenu.classList.toggle("visible");
-		categorySvg.classList.toggle("rotate");
+		if (categoryMenu.classList.contains("visible")) {
+			document.getElementById("categoryButtonIcon").style.transform =
+				"rotate(0deg)";
+			document.getElementById("categoryButton").style.backgroundColor =
+				"var(--menu-background)";
+			document.getElementById(
+				"categoryButton"
+			).style.borderBottomRightRadius = 0;
+			document.getElementById(
+				"categoryButton"
+			).style.borderBottomLeftRadius = 0;
+		} else {
+			document.getElementById("categoryButtonIcon").style.transform =
+				"rotate(-180deg)";
+			document.getElementById("categoryButton").style.backgroundColor =
+				"var(--category-button)";
+			document.getElementById(
+				"categoryButton"
+			).style.borderBottomRightRadius = "5px";
+			document.getElementById(
+				"categoryButton"
+			).style.borderBottomLeftRadius = "5px";
+		}
 	});
 
 	document.addEventListener("click", function () {
 		accountMenu.classList.remove("visible");
 		categoryMenu.classList.remove("visible");
+		document.getElementById("categoryButtonIcon").style.transform =
+			"rotate(-180deg)";
+		document.getElementById("categoryButton").style.backgroundColor =
+			"var(--category-button)";
+		document.getElementById(
+			"categoryButton"
+		).style.borderBottomRightRadius = "5px";
+		document.getElementById("categoryButton").style.borderBottomLeftRadius =
+			"5px";
 	});
 });
 
