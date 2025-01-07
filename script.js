@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	const accountMenu = document.querySelector(".account-list");
 	const category = document.getElementById("categoryButton");
 	const categoryMenu = document.querySelector(".category-menu");
+	const categoryMenuContainer = document.querySelector(
+		".category-menu-container"
+	);
 
 	account.addEventListener("click", function (event) {
 		event.stopPropagation();
@@ -11,8 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	category.addEventListener("click", function (event) {
 		event.stopPropagation();
-		categoryMenu.classList.toggle("visible");
-		if (categoryMenu.classList.contains("visible")) {
+		categoryMenuContainer.classList.toggle("visible");
+		categoryMenu.classList.toggle("category-menu-visible");
+		if (categoryMenuContainer.classList.contains("visible")) {
 			document.getElementById("categoryButtonIcon").style.transform =
 				"rotate(0deg)";
 			document.getElementById("categoryButton").style.backgroundColor =
@@ -23,6 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			document.getElementById(
 				"categoryButton"
 			).style.borderBottomLeftRadius = 0;
+			document.getElementById("categoryButton").style.color =
+				"var(--menu-text-color)";
+			document.getElementById("categoryButtonIcon").style.fill =
+				"var(--menu-text-color)";
 		} else {
 			document.getElementById("categoryButtonIcon").style.transform =
 				"rotate(-180deg)";
@@ -34,12 +42,17 @@ document.addEventListener("DOMContentLoaded", function () {
 			document.getElementById(
 				"categoryButton"
 			).style.borderBottomLeftRadius = "5px";
+			document.getElementById("categoryButton").style.color =
+				"var(--text-color)";
+			document.getElementById("categoryButtonIcon").style.fill =
+				"var(--text-color)";
 		}
 	});
 
 	document.addEventListener("click", function () {
 		accountMenu.classList.remove("visible");
-		categoryMenu.classList.remove("visible");
+		categoryMenu.classList.remove("category-menu-visible");
+		categoryMenuContainer.classList.remove("visible");
 		document.getElementById("categoryButtonIcon").style.transform =
 			"rotate(-180deg)";
 		document.getElementById("categoryButton").style.backgroundColor =
@@ -49,6 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		).style.borderBottomRightRadius = "5px";
 		document.getElementById("categoryButton").style.borderBottomLeftRadius =
 			"5px";
+		document.getElementById("categoryButton").style.color =
+			"var(--text-color)";
+		document.getElementById("categoryButtonIcon").style.fill =
+			"var(--text-color)";
 	});
 });
 
