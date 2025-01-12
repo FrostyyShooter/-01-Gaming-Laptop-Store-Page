@@ -66,6 +66,9 @@
 	font-family: "Poppins", sans-serif;
 	text-decoration: none;
 }
+html {
+	scroll-behavior: smooth;
+}
 body {
 	background-color: var(--background-color);
 	color: var(--text-color);
@@ -448,15 +451,23 @@ main {
 .sort-menu li {
 	list-style: none;
 }
+.products {
+	height: 90vh;
+}
 .card-container {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(300px, 1fr));
 	gap: 2rem;
-	margin: 5rem 2rem;
-	@media screen and (max-width: 1440px) {
+	margin: 4rem 1rem 0 1rem;
+	padding: 1rem 1rem 0 1rem;
+}
+@media screen and (max-width: 1555px) {
+	.card-container {
 		grid-template-columns: repeat(2, minmax(300px, 1fr));
 	}
-	@media screen and (max-width: 1020px) {
+}
+@media screen and (max-width: 1020px) {
+	.card-container {
 		grid-template-columns: repeat(1, minmax(300px, 1fr));
 	}
 }
@@ -517,20 +528,23 @@ main {
 	background-color: var(--card-hover-color);
 	color: var(--card-text-hover-color);
 }
-
 .scrollToTop {
-	background-color: red;
+	background-color: var(--card-bt-bg-color);
 	/* background-color: var(--scroll-to-top-bg-color); */
 	color: var(--scroll-to-top-color);
 	width: 100%;
 	padding-block: 1rem;
 	text-align: center;
 	font-size: 1.5rem;
+	grid-row: 5;
+	grid-column: 1/4;
+	border-radius: 1rem;
+	border: 4px solid var(--card-bt-bg-color);
+	transition: 0.3s ease;
 }
 .scrollToTop:hover {
 	background-color: var(--hover-color);
 }
-
 /* footer */
 
 /* CSS classes for JS */
