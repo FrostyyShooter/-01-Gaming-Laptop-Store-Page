@@ -97,5 +97,4 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("darkModeIcon").style.opacity = 1;
 		document.getElementById("lightModeIcon").style.opacity = 0;
 	}
-	console.log(localStorage.getItem("dark-mode"));
 });
