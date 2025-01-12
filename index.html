@@ -15,7 +15,7 @@
     the container should include a nav, aside, main, and footer
     as for the responsive design, desktop and tablet versions should be mostly the same. the mobile version should have stuff in hamburger menus.
     -->
-	<body>
+	<body class="dark-mode">
 		<!-- 
 		<div class="popup-background">
 			<div class="popup-container">
@@ -25,23 +25,16 @@
 						>This website is made with vanilla HTML, CSS and JS.
 						<br />
 						No frameworks or libraries were used.
+						<br />
+						At the time of making this page, I was still learning advanced CSS and JS.
 					</span>
 					<button></button>
 				</div>
 			</div>
 		</div>
-		 -->
+		-->
 		<div class="container">
-			<nav>
-				<!--
-                the nav should include a logo for the site that functions as a home button
-                dropdown menu for categories
-                it should also include a search bar
-                an account button
-                a cart button
-                a wishlist button
-                and a hamburger menu for mobile
-                -->
+			<nav id="nav">
 				<a href="#"
 					><img
 						src="assets/images/FrostyyShooter.png"
@@ -240,15 +233,108 @@
 				</div>
 				<div class="content-container">
 					<div class="filter-list">
-						<ul>
-							<li>Screen size:</li>
-							<li>lorem</li>
-						</ul>
+						<span>Filter by:</span>
+						<div class="filter-screen-size filter-category">
+							<span>Screen size:</span>
+							<div>
+								<input
+									type="checkbox"
+									id="16inch"
+									name="16inch" />
+								<label for="16inch">16"</label>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									id="17inch"
+									name="17inch" />
+								<label for="17inch">17"</label>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									id="18inch"
+									name="18inch" />
+								<label for="18inch">18"</label>
+							</div>
+						</div>
+						<div class="filter-cpu filter-category">
+							<span>CPU:</span>
+							<div>
+								<input
+									type="checkbox"
+									name="ultra9"
+									id="ultra9" />
+								<label for="ultra9">Intel Core Ultra 9</label>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									name="ultra7"
+									id="ultra7" />
+								<label for="ultra7">Intel Core Ultra 7</label>
+							</div>
+						</div>
+						<div class="filter-gpu filter-category">
+							<span>GPU:</span>
+							<div>
+								<input
+									type="checkbox"
+									name="rtx5090"
+									id="rtx5090" />
+								<label for="rtx5090"
+									>NVIDIA GeForce RTX 5090</label
+								>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									name="rtx5080"
+									id="rtx5080" />
+								<label for="rtx5080"
+									>NVIDIA GeForce RTX 5080</label
+								>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									name="rtx5070"
+									id="rtx5070" />
+								<label for="rtx5070"
+									>NVIDIA GeForce RTX 5070</label
+								>
+							</div>
+						</div>
+						<div class="filter-storage filter-category">
+							<span>Storage:</span>
+							<div>
+								<input
+									type="checkbox"
+									name="gb512"
+									id="gb512" />
+								<label for="gb512">512 GB</label>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									name="gb1024"
+									id="gb1024" />
+								<label for="gb1024">1 TB</label>
+							</div>
+							<div>
+								<input
+									type="checkbox"
+									name="gb2048"
+									id="gb2048" />
+								<label for="gb2048">2 TB</label>
+							</div>
+						</div>
 					</div>
 					<div class="products">
-						<div class="sort-menu" style="display: none">
-							<p>Sort by:</p>
-							<ul>
+						<div class="sort-menu">
+							<span>Sort by:</span>
+							<span>Date: Newest first</span>
+							<ul style="display: none">
 								<li>Date: Newest first</li>
 								<li>Date: Oldest first</li>
 								<li>Price: Highest first</li>
@@ -258,7 +344,7 @@
 						<!-- want at least 10 cards -->
 						<div class="card-container">
 							<div class="product-card" data-id="2025">
-								<div>NEW</div>
+								<span>NEW</span>
 								<img
 									src="/assets/images/ROG Laptop/2025/ROG Strix G16.png"
 									alt="ROG Strix G16 (2025) G615LW-S5058W" />
@@ -278,10 +364,17 @@
 									</li>
 									<li>1TB M.2 NVMe™ PCIe® 4.0 SSD storage</li>
 								</ul>
-								<button>Add to cart</button>
+								<a
+									href="#"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="card-button"
+									>VIEW MORE</a
+								>
+								<button class="card-button">Add to cart</button>
 							</div>
 							<div class="product-card" data-id="2025">
-								<div>NEW</div>
+								<span>NEW</span>
 								<img
 									src="/assets/images/ROG Laptop/2025/ROG Strix G16.png"
 									alt="ROG Strix G16 (2025) G615LR-S5072W" />
@@ -301,10 +394,17 @@
 									</li>
 									<li>1TB M.2 NVMe™ PCIe® 4.0 SSD storage</li>
 								</ul>
-								<button>Add to cart</button>
+								<a
+									href="#"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="card-button"
+									>VIEW MORE</a
+								>
+								<button class="card-button">Add to cart</button>
 							</div>
 							<div class="product-card" data-id="2025">
-								<div>NEW</div>
+								<span>NEW</span>
 								<img
 									src="/assets/images/ROG Laptop/2025/ROG Strix G16.png"
 									alt="ROG Strix G16 (2025) G615LR-S5160W" />
@@ -324,10 +424,17 @@
 									</li>
 									<li>1TB M.2 NVMe™ PCIe® 4.0 SSD storage</li>
 								</ul>
-								<button>Add to cart</button>
+								<a
+									href="#"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="card-button"
+									>VIEW MORE</a
+								>
+								<button class="card-button">Add to cart</button>
 							</div>
 							<div class="product-card" data-id="2025">
-								<div>NEW</div>
+								<span>NEW</span>
 								<img
 									src="/assets/images/ROG Laptop/2025/ROG Strix G18.png"
 									alt="ROG Strix G18 (2025) G815LW-S9076W" />
@@ -347,9 +454,17 @@
 									</li>
 									<li>1TB M.2 NVMe™ PCIe® 4.0 SSD storage</li>
 								</ul>
-								<button>Add to cart</button>
+								<a
+									href="#"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="card-button"
+									>VIEW MORE</a
+								>
+								<button class="card-button">Add to cart</button>
 							</div>
 							<div class="product-card" data-id="2025">
+								<span>NEW</span>
 								<img src="" alt="" />
 								<h2>
 									<br />
@@ -362,12 +477,20 @@
 									<li></li>
 									<li></li>
 								</ul>
-								<button>Add to cart</button>
+								<a
+									href="#"
+									target="_blank"
+									rel="noopener noreferrer"
+									class="card-button"
+									>VIEW MORE</a
+								>
+								<button class="card-button">Add to cart</button>
 							</div>
 						</div>
 					</div>
-
-					<!-- filter list -->
+					<div>
+						<a href="#nav" id="scrollToTop">Scroll to top</a>
+					</div>
 				</div>
 			</main>
 			<footer>
