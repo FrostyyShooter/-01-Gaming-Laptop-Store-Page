@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
 	const lightDark = document.getElementById("lightDarkModeButton");
 	const body = document.querySelector("body");
-	localStorage.setItem("dark-mode", "disabled");
 	let lightDarkMode = localStorage.getItem("dark-mode");
 
 	lightDark.addEventListener("click", function () {
@@ -94,7 +93,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("darkModeIcon").style.opacity = 0;
 		document.getElementById("lightModeIcon").style.opacity = 1;
 	} else if (lightDarkMode === "enabled") {
+		body.classList.add("dark-mode");
 		document.getElementById("darkModeIcon").style.opacity = 1;
 		document.getElementById("lightModeIcon").style.opacity = 0;
 	}
+	console.log(localStorage.getItem("dark-mode"));
 });
