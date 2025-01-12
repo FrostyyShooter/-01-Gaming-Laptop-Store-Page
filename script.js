@@ -99,6 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 });
 function scrollToTop() {
-	// window.scrollTo(0, 0);
-	document.getElementById("products").scrollTo(0, 0);
+	window.scrollTo(0, 0);
+	// document.getElementById("products").scrollTo(0, 0);
 }

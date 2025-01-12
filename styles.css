@@ -451,23 +451,15 @@ main {
 .sort-menu li {
 	list-style: none;
 }
-.products {
-	height: 90vh;
-}
 .card-container {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(300px, 1fr));
 	gap: 2rem;
-	margin: 4rem 1rem 0 1rem;
-	padding: 1rem 1rem 0 1rem;
-}
-@media screen and (max-width: 1555px) {
-	.card-container {
+	margin: 5rem 2rem 2rem 2rem;
+	@media screen and (max-width: 1440px) {
 		grid-template-columns: repeat(2, minmax(300px, 1fr));
 	}
-}
-@media screen and (max-width: 1020px) {
-	.card-container {
+	@media screen and (max-width: 1020px) {
 		grid-template-columns: repeat(1, minmax(300px, 1fr));
 	}
 }
@@ -528,6 +520,7 @@ main {
 	background-color: var(--card-hover-color);
 	color: var(--card-text-hover-color);
 }
+
 .scrollToTop {
 	background-color: var(--card-bt-bg-color);
 	/* background-color: var(--scroll-to-top-bg-color); */
@@ -537,16 +530,20 @@ main {
 	text-align: center;
 	font-size: 1.5rem;
 	grid-row: 5;
-	grid-column: 1/4;
-	border-radius: 1rem;
+	grid-column: 1 / 4;
 	border: 4px solid var(--card-bt-bg-color);
-	transition: 0.3s ease;
+	border-radius: 1rem;
 }
 .scrollToTop:hover {
 	background-color: var(--hover-color);
 }
-/* footer */
 
+/* footer */
+.footer {
+	width: 100%;
+	height: 5vh;
+	background-color: red;
+}
 /* CSS classes for JS */
 .visible {
 	visibility: visible;

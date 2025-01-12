@@ -1,0 +1,26 @@
+NECESSARY!!!
+- rework the pathway
+    add a before element to create a rounded edge to overlap
+    into the last pathway element
+
+- finish the menu
+    add all the list elements and animations and the javascript code
+
+- finish the nav bar menus
+    finish styling and adding the content and necessary javascript code for the menus
+
+- integrate the filter menu
+    add the javascript code for the menu (maybe in a new file?)
+
+- integrate the sort by menu
+    add the content, styling and the javascript code for the menu
+
+- add the footer
+    add the content and styling for the footer
+
+- rework the var colors for both themes
+
+
+OPTIONAL!!!
+- add a working search bar
+    just for the laptop page. with previews of what the user is searching for.
