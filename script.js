@@ -98,3 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		document.getElementById("lightModeIcon").style.opacity = 0;
 	}
 });
+function scrollToTop() {
+	// window.scrollTo(0, 0);
+	document.getElementById("products").scrollTo(0, 0);
+}
