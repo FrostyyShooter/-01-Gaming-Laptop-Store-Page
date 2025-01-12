@@ -2,6 +2,7 @@ NECESSARY!!!
 - rework the pathway
     add a before element to create a rounded edge to overlap
     into the last pathway element
+notes: might have some issues with the alignment of the before and after element!
 
 - finish the menu
     add all the list elements and animations and the javascript code
