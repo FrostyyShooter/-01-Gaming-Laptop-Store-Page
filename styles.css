@@ -28,11 +28,11 @@
 	--accent-color: #01ffff;
 	--aside-background-color: #0d3a5f;
 	--main-content-background: #000d22;
-	--category-button: #f00;
+	--category-button: #0064b7;
 	--box-shadow-color: rgba(1, 255, 255, 0.3);
-	--menu-background: #ffffff;
+	--menu-background: #005e7e;
 	--menu-text-color: #5ab5ff;
-	--pathway-background: #000;
+	--pathway-background: #062234;
 	--focus-color: #5ab5ff;
 }
 @font-face {
@@ -53,7 +53,50 @@ body {
 .container {
 	width: 80%;
 	margin-inline: auto;
+	@media screen and (max-width: 750px) {
+		width: 90%;
+	}
 }
+
+/* popup message */
+.popup-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #00000099;
+	z-index: 1001;
+}
+.popup-container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	color: black;
+	border-radius: 1rem;
+	height: 40%;
+	z-index: 1001;
+}
+.popup-message span {
+	display: block;
+	text-align: center;
+	padding: 2rem;
+	font-size: 2rem;
+	margin: 3rem;
+}
+.popup-header {
+	text-decoration: underline;
+}
+.blur {
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
+}
+
 /* navigation bar */
 nav {
 	background-color: var(--nav-background);
@@ -367,6 +410,12 @@ main {
 	grid-template-columns: repeat(3, minmax(300px, 1fr));
 	gap: 2rem;
 	margin: 5rem 2rem 5rem 0;
+	@media screen and (max-width: 1440px) {
+		grid-template-columns: repeat(2, minmax(300px, 1fr));
+	}
+	@media screen and (max-width: 1020px) {
+		grid-template-columns: repeat(1, minmax(300px, 1fr));
+	}
 }
 .product-card {
 	display: flex;
@@ -413,5 +462,47 @@ main {
 }
 /* media queries */
 /* min width for normal display > below this width change all to mobile version */
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1280px) {
+	.header-wrapper h1 {
+		font-size: 3rem;
+		text-wrap: nowrap;
+	}
+	.header-wrapper svg {
+		height: 8rem;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.header-img {
+		height: 10vh;
+	}
+	.header-wrapper h1 {
+		font-size: 2rem;
+		text-wrap: nowrap;
+	}
+	.header-wrapper svg {
+		height: 6rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	nav {
+		display: none;
+	}
+	.container {
+		width: 80%;
+	}
+	.header-img {
+		height: 10vh;
+	}
+	.header-wrapper h1 {
+		font-size: 1.5rem;
+		margin-right: 0;
+	}
+	.header-wrapper svg {
+		height: 4rem;
+	}
+	.header-wrapper {
+		flex-direction: column;
+	}
 }

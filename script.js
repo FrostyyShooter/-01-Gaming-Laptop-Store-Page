@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 });
 
+// Light/Dark Mode
 document.addEventListener("DOMContentLoaded", function () {
 	const lightDark = document.getElementById("lightDarkModeButton");
 	const body = document.querySelector("body");
