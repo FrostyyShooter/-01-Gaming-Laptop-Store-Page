@@ -9,7 +9,8 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<script src="script.js" defer></script>
 	</head>
-	<body class="overflow-hidden">
+	<!-- <body class="overflow-hidden"> -->
+	<body>
 		<!-- <div class="popup-background">
 			<div class="popup-container">
 				<div class="popup-message">
@@ -32,9 +33,9 @@
 				</div>
 			</div> 
 		</div>-->
-		<div class="account-container visible">
+		<div class="account-container" id="account-container">
 			<div class="container-close-button">
-				<button>
+				<button id="closeAccountContainer">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 -960 960 960">
@@ -43,7 +44,7 @@
 					</svg>
 				</button>
 			</div>
-			<div class="account-sign-in visible">
+			<div class="account-sign-in" id="account-sign-in">
 				<form class="account-form" action="" id="accountForm">
 					<span>sign in</span>
 					<label for="email">Email:</label>
@@ -64,7 +65,7 @@
 					<button>Have no account? Sign up here!</button>
 				</form>
 			</div>
-			<div class="account-registration">
+			<div class="account-registration" id="account-registration">
 				<form class="registration-form" action="" id="registrationForm">
 					<span>sign up</span>
 					<div class="register-email">
@@ -144,8 +145,12 @@
 								and replace with a log out button -->
 								<li><a href="#">My account</a></li>
 								<li><a href="#">My orders</a></li>
-								<li><button>Sign In</button></li>
-								<li><a href="#">Register</a></li>
+								<li>
+									<button id="signInBtn">Sign In</button>
+								</li>
+								<li>
+									<button id="signUpBtn">Register</button>
+								</li>
 							</ul>
 						</div>
 					</div>

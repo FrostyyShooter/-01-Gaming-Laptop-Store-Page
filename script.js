@@ -104,7 +104,29 @@ function scrollToTop() {
 }
 
 // account sign in
-
+document.addEventListener("DOMContentLoaded", function () {
+	const body = document.querySelector("body");
+	const accountContainer = document.getElementById("account-container");
+	const accountSignIn = document.getElementById("account-sign-in");
+	const accountSignUp = document.getElementById("account-registration");
+	document.getElementById("signInBtn").onclick = function () {
+		body.classList.toggle("overflow-hidden");
+		accountContainer.classList.toggle("visible");
+		accountSignIn.classList.toggle("visible");
+	};
+	document.getElementById("signUpBtn").onclick = function () {
+		body.classList.toggle("overflow-hidden");
+		accountContainer.classList.toggle("visible");
+		accountSignUp.classList.toggle("visible");
+	};
+	document.getElementById("closeAccountContainer").onclick = function () {
+		body.classList.remove("overflow-hidden");
+		accountContainer.classList.remove("visible");
+		accountSignIn.classList.remove("visible");
+		accountSignUp.classList.remove("visible");
+	};
+	// from sign in to sign up and visa versa
+});
 // account sign up
 
 // wishlist
