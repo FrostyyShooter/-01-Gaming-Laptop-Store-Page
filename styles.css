@@ -282,6 +282,21 @@ form {
 	border-bottom-left-radius: 0.75em;
 	border-bottom-right-radius: 0.75em;
 }
+
+.account-sign-in,
+.account-registration {
+	position: absolute;
+	/* background-color: var(--menu-background); */
+	background-color: red;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.account-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 /* second nav bar */
 .categoryButton {
 	position: relative;
@@ -374,13 +389,25 @@ aside {
 	list-style: none;
 	background-color: var(--pathway-background);
 	padding-block: 2px;
-	padding-inline-start: 1rem;
-	padding-inline-end: 1.5rem;
+	/* padding-inline-start: 1.5rem; */
+	/* padding-inline-end: 1.5rem; */
 }
 .pathway li:not(:first-child) {
-	margin-inline-start: -0.4rem;
+	margin-inline-start: -1rem;
 }
-.pathway li::after {
+
+.pathway li:not(:last-child)::after {
+	content: "";
+	position: absolute;
+	background-color: var(--aside-background-color);
+	clip-path: polygon(20% 0, 70% 50%, 20% 100%, 0 100%, 50% 50%, 0 0);
+	/* clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 50% 50%, 0% 0%); */
+	right: -1px;
+	top: -1px;
+	width: 1rem;
+	height: calc(100% + 2px);
+}
+.pathway li:last-child::after {
 	content: "";
 	position: absolute;
 	background-color: var(--aside-background-color);
@@ -394,7 +421,8 @@ aside {
 	content: "";
 	position: absolute;
 	background-color: var(--aside-background-color);
-	clip-path: polygon(0 0, 50% 50%, 0 100%, 0% 100%, 0% 50%, 0% 0%);
+	clip-path: polygon(50% 0, 100% 50%, 50% 100%, 30% 100%, 80% 50%, 30% 0);
+	/* clip-path: polygon(0 0, 50% 50%, 0 100%, 0% 100%, 0% 50%, 0% 0%); */
 	left: -1px;
 	top: -1px;
 	width: 1rem;
@@ -402,8 +430,12 @@ aside {
 }
 .pathway li a {
 	color: var(--text-color);
+	padding-inline: 1rem;
 }
-
+.pathway li:not(:first-child) a {
+	margin-inline-start: 0.5rem;
+	padding-inline-end: 1.5rem;
+}
 /* main content */
 main {
 	margin-inline: auto;

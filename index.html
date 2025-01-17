@@ -32,7 +32,26 @@
 				</div>
 			</div> 
 		</div>-->
-
+		<div class="account-sign-in">
+			<form action="" id="accountForm">
+				<div class="account-form">
+					<div class="login-email">
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" required />
+					</div>
+					<div class="login-password">
+						<label for="password">Password:</label>
+						<input
+							type="password"
+							id="password"
+							name="password"
+							required />
+					</div>
+					<button type="submit">Sign In</button>
+				</div>
+			</form>
+		</div>
+		<div class="account-registration"></div>
 		<div class="container">
 			<nav id="nav">
 				<a href="#"
@@ -76,10 +95,13 @@
 						</button>
 						<div class="account-list">
 							<ul>
+								<!-- if user is signed in. 
+								remove list items sign in and register 
+								and replace with a log out button -->
+								<li><a href="#">My account</a></li>
+								<li><a href="#">My orders</a></li>
 								<li><button>Sign In</button></li>
 								<li><a href="#">Register</a></li>
-								<li><a href="#">My orders</a></li>
-								<li><a href="#">My account</a></li>
 							</ul>
 						</div>
 					</div>

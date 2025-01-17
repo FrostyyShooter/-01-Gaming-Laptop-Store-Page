@@ -102,3 +102,9 @@ function scrollToTop() {
 	window.scrollTo(0, 0);
 	// document.getElementById("products").scrollTo(0, 0);
 }
+
+// account sign in
+
+// account sign up
+
+// wishlist
