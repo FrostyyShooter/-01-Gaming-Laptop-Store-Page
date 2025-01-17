@@ -15,6 +15,7 @@
 	--box-shadow-color: rgba(0, 0, 0, 0.3);
 	--menu-background: #ffffff;
 	--menu-text-color: #5ab5ff;
+	--pathway-background: #89caff;
 	--focus-color: #5ab5ff;
 	--filter-list-background: #bce5ff;
 	--product-new-tag-background-color: #bce5ff;
@@ -25,7 +26,6 @@
 	--card-text-hover-color: ;
 	--scroll-to-top-bg-color: ;
 	--scroll-to-top-color: ;
-	--pathway-background: #89caff;
 	--pathway-border: #5ab5ff;
 }
 /* dark theme */
@@ -44,6 +44,7 @@
 	--box-shadow-color: rgba(1, 255, 255, 0.3);
 	--menu-background: #005e7e;
 	--menu-text-color: #5ab5ff;
+	--pathway-background: #062234;
 	--focus-color: #5ab5ff;
 	--filter-list-background: #0d3a5f;
 	--product-new-tag-background-color: #5ab5ff;
@@ -54,7 +55,6 @@
 	--card-text-hover-color: ;
 	--scroll-to-top-bg-color: ;
 	--scroll-to-top-color: ;
-	--pathway-background: #062234;
 	--pathway-border: #5ab5ff;
 }
 @font-face {
@@ -294,6 +294,7 @@ form {
 	color: var(--text-color);
 	cursor: pointer;
 	padding-left: 0.5rem;
+	transition: 0.3s ease;
 	width: 20ch;
 }
 .categoryButton svg {
@@ -305,7 +306,8 @@ form {
 .category-menu-container {
 	position: absolute;
 	visibility: hidden;
-	top: 78%;
+	/* top: 32px; */
+	top: 32px;
 	z-index: 1;
 	overflow-y: hidden;
 	overflow-x: visible;
@@ -314,6 +316,8 @@ form {
 .category-menu {
 	display: block;
 	max-width: 20ch;
+	/* visibility: hidden; */
+	/* opacity: 0; */
 	color: var(--menu-text-color);
 	background-color: var(--menu-background);
 	padding-inline: 0.5rem;
@@ -335,6 +339,7 @@ form {
 }
 .category-first-tree li:last-child {
 	border-bottom: none;
+	/* background-color: blue; */
 }
 .category-first-tree li::after {
 	float: right;
@@ -365,44 +370,61 @@ aside {
 	padding-block: 0.5rem;
 }
 .pathway {
-	display: flex;
-	align-items: center;
+	display: inline;
 	margin-left: 1rem;
 }
 .pathway li {
 	position: relative;
+	display: inline-block;
 	list-style: none;
 	background-color: var(--pathway-background);
-	padding-block: 2px;
-	padding-inline-start: 1rem;
-	padding-inline-end: 1.5rem;
+	clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0% 0%, 0% 0%);
+	/* clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 15% 50%, 0% 0%); */
+
+	/* padding-inline: 0.5rem;
+	padding-block: 0.1rem;
+	padding-left: 1.4rem;
+	margin: -5px;
+	border-top: 2px solid var(--pathway-border);
+	border-bottom: 2px solid var(--pathway-border); */
+}
+
+/* .pathway li a {
+	color: var(--text-color);
+	transition: 0.3s ease;
+}
+.pathway li a:hover {
+	color: var(--hover-color);
+	background-color: var(--hover-color);
+}
+.pathway li:first-child {
+	border-left: 2px solid var(--pathway-border);
 }
 .pathway li:not(:first-child) {
-	margin-inline-start: -0.4rem;
+	padding-left: 2rem;
 }
-.pathway li::after {
+.pathway li:not(:first-child)::before,
+.pathway li:last-child::after {
 	content: "";
+	box-sizing: border-box;
 	position: absolute;
-	background-color: var(--aside-background-color);
-	clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 50% 50%, 0% 0%);
-	right: -1px;
-	top: -1px;
+	background-color: var(--pathway-background);
+	height: calc(100% + 3.6px + 0.06rem);
 	width: 1rem;
-	height: calc(100% + 2px);
+	top: -2px;
+	border-top-right-radius: 200%;
+	border-bottom-right-radius: 200%;
+	border-right: 2px solid var(--pathway-border);
+	border-top: 2px solid var(--pathway-border);
+	border-bottom: 2px solid var(--pathway-border);
 }
 .pathway li:not(:first-child)::before {
-	content: "";
-	position: absolute;
-	background-color: var(--aside-background-color);
-	clip-path: polygon(0 0, 50% 50%, 0 100%, 0% 100%, 0% 50%, 0% 0%);
-	left: -1px;
-	top: -1px;
-	width: 1rem;
-	height: calc(100% + 2px);
+	left: 0;
 }
-.pathway li a {
-	color: var(--text-color);
-}
+
+.pathway li:last-child::after {
+	right: -0.9rem;
+} */
 
 /* main content */
 main {
