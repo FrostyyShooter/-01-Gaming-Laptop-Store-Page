@@ -9,7 +9,7 @@
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<script src="script.js" defer></script>
 	</head>
-	<body>
+	<body class="overflow-hidden">
 		<!-- <div class="popup-background">
 			<div class="popup-container">
 				<div class="popup-message">
@@ -32,14 +32,46 @@
 				</div>
 			</div> 
 		</div>-->
-		<div class="account-sign-in">
-			<form action="" id="accountForm">
-				<div class="account-form">
-					<div class="login-email">
+		<div class="account-container visible">
+			<div class="container-close-button">
+				<button>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 -960 960 960">
+						<path
+							d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+					</svg>
+				</button>
+			</div>
+			<div class="account-sign-in visible">
+				<form class="account-form" action="" id="accountForm">
+					<span>sign in</span>
+					<label for="email">Email:</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						placeholder="youremail@email.com"
+						required />
+					<label for="password">Password:</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						placeholder="********"
+						required />
+					<button type="submit">Sign In</button>
+					<button>Have no account? Sign up here!</button>
+				</form>
+			</div>
+			<div class="account-registration">
+				<form class="registration-form" action="" id="registrationForm">
+					<span>sign up</span>
+					<div class="register-email">
 						<label for="email">Email:</label>
 						<input type="email" id="email" name="email" required />
 					</div>
-					<div class="login-password">
+					<div class="register-password">
 						<label for="password">Password:</label>
 						<input
 							type="password"
@@ -47,11 +79,23 @@
 							name="password"
 							required />
 					</div>
-					<button type="submit">Sign In</button>
-				</div>
-			</form>
+					<div class="register-confirm-password">
+						<label for="confirmPassword">Confirm Password:</label>
+						<input
+							type="password"
+							id="confirmPassword"
+							name="confirmPassword"
+							required />
+					</div>
+					<div class="date-of-birth">
+						<label for="dob">Date of Birth:</label>
+						<input type="date" id="dob" name="dob" required />
+					</div>
+					<button type="submit">Register</button>
+					<button>Have an account? Sign in here!</button>
+				</form>
+			</div>
 		</div>
-		<div class="account-registration"></div>
 		<div class="container">
 			<nav id="nav">
 				<a href="#"
