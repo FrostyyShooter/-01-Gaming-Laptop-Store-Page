@@ -131,3 +131,120 @@ document.addEventListener("DOMContentLoaded", function () {
 // account sign up
 
 // wishlist
+
+document.addEventListener("DOMContentLoaded", function () {
+	const categoryHardware = document.getElementById("hardware");
+	const hardwareList = document.getElementById("hardwareList");
+	categoryHardware.addEventListener("mouseover", function () {
+		categoryHardware.classList.add("menu-hover");
+		hardwareList.classList.add("visible");
+		hardwareList.style.opacity = 1;
+	});
+	hardwareList.addEventListener("mouseover", function () {
+		categoryHardware.classList.add("menu-hover");
+		hardwareList.classList.add("visible");
+		hardwareList.style.opacity = 1;
+	});
+	categoryHardware.addEventListener("mouseleave", function () {
+		categoryHardware.classList.remove("menu-hover");
+		hardwareList.classList.remove("visible");
+		hardwareList.style.opacity = 0;
+	});
+	hardwareList.addEventListener("mouseleave", function () {
+		categoryHardware.classList.remove("menu-hover");
+		hardwareList.classList.remove("visible");
+		hardwareList.style.opacity = 0;
+	});
+
+	const categoryPc = document.getElementById("pc");
+	const pcList = document.getElementById("pcList");
+	categoryPc.addEventListener("mouseover", function () {
+		categoryPc.classList.add("menu-hover");
+		pcList.classList.add("visible");
+		pcList.style.opacity = 1;
+	});
+	pcList.addEventListener("mouseover", function () {
+		categoryPc.classList.add("menu-hover");
+		pcList.classList.add("visible");
+		pcList.style.opacity = 1;
+	});
+	categoryPc.addEventListener("mouseleave", function () {
+		categoryPc.classList.remove("menu-hover");
+		pcList.classList.remove("visible");
+		pcList.style.opacity = 0;
+	});
+	pcList.addEventListener("mouseleave", function () {
+		categoryPc.classList.remove("menu-hover");
+		pcList.classList.remove("visible");
+		pcList.style.opacity = 0;
+	});
+
+	const categoryLaptop = document.getElementById("laptop");
+	const laptopList = document.getElementById("laptopList");
+	categoryLaptop.addEventListener("mouseover", function () {
+		categoryLaptop.classList.add("menu-hover");
+		laptopList.classList.add("visible");
+		laptopList.style.opacity = 1;
+	});
+	laptopList.addEventListener("mouseover", function () {
+		categoryLaptop.classList.add("menu-hover");
+		laptopList.classList.add("visible");
+		laptopList.style.opacity = 1;
+	});
+	categoryLaptop.addEventListener("mouseleave", function () {
+		categoryLaptop.classList.remove("menu-hover");
+		laptopList.classList.remove("visible");
+		laptopList.style.opacity = 0;
+	});
+	laptopList.addEventListener("mouseleave", function () {
+		categoryLaptop.classList.remove("menu-hover");
+		laptopList.classList.remove("visible");
+		laptopList.style.opacity = 0;
+	});
+
+	const categoryGaming = document.getElementById("gaming");
+	const gamingList = document.getElementById("gamingList");
+	categoryGaming.addEventListener("mouseover", function () {
+		categoryGaming.classList.add("menu-hover");
+		gamingList.classList.add("visible");
+		gamingList.style.opacity = 1;
+	});
+	gamingList.addEventListener("mouseover", function () {
+		categoryGaming.classList.add("menu-hover");
+		gamingList.classList.add("visible");
+		gamingList.style.opacity = 1;
+	});
+	categoryGaming.addEventListener("mouseleave", function () {
+		categoryGaming.classList.remove("menu-hover");
+		gamingList.classList.remove("visible");
+		gamingList.style.opacity = 0;
+	});
+	gamingList.addEventListener("mouseleave", function () {
+		categoryGaming.classList.remove("menu-hover");
+		gamingList.classList.remove("visible");
+		gamingList.style.opacity = 0;
+	});
+
+	const categorySoftware = document.getElementById("software");
+	const softwareList = document.getElementById("softwareList");
+	categorySoftware.addEventListener("mouseover", function () {
+		categorySoftware.classList.add("menu-hover");
+		softwareList.classList.add("visible");
+		softwareList.style.opacity = 1;
+	});
+	softwareList.addEventListener("mouseover", function () {
+		categorySoftware.classList.add("menu-hover");
+		softwareList.classList.add("visible");
+		softwareList.style.opacity = 1;
+	});
+	categorySoftware.addEventListener("mouseleave", function () {
+		categorySoftware.classList.remove("menu-hover");
+		softwareList.classList.remove("visible");
+		softwareList.style.opacity = 0;
+	});
+	softwareList.addEventListener("mouseleave", function () {
+		categorySoftware.classList.remove("menu-hover");
+		softwareList.classList.remove("visible");
+		softwareList.style.opacity = 0;
+	});
+});
