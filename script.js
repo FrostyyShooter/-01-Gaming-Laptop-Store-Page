@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 	// from sign in to sign up and visa versa
 });
+
 // account sign up
 
 // wishlist
