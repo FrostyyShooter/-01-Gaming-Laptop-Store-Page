@@ -496,10 +496,12 @@ aside {
 	/* padding-inline-start: 1.5rem; */
 	/* padding-inline-end: 1.5rem; */
 }
+.pathway li:first-child {
+	padding-inline-end: 0.5rem;
+}
 .pathway li:not(:first-child) {
 	margin-inline-start: -1rem;
 }
-
 .pathway li:not(:last-child)::after {
 	content: "";
 	position: absolute;
