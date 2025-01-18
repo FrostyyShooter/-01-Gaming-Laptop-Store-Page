@@ -248,3 +248,44 @@ document.addEventListener("DOMContentLoaded", function () {
 		softwareList.style.opacity = 0;
 	});
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+	const filters = document.querySelectorAll(
+		'.filter-category input[type="checkbox"]'
+	);
+	const products = document.querySelectorAll(".product-card");
+
+	filters.forEach(function (filter) {
+		filter.addEventListener("change", function () {
+			filterProducts();
+		});
+	});
+
+	function filterProducts() {
+		const activeFilters = {};
+
+		filters.forEach(function (filter) {
+			if (filter.checked) {
+				const category = filter.name;
+				if (!activeFilters[category]) {
+					activeFilters[category] = [];
+				}
+				activeFilters[category].push(filter.id);
+			}
+		});
+
+		products.forEach(function (product) {
+			let isVisible = true;
+
+			for (const category in activeFilters) {
+				const productValue = product.getAttribute(`data-${category}`);
+				if (!activeFilters[category].includes(productValue)) {
+					isVisible = false;
+					break;
+				}
+			}
+
+			product.style.display = isVisible ? "block" : "none";
+		});
+	}
+});

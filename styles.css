@@ -803,6 +803,7 @@ main {
 	margin-inline: 2rem;
 }
 .product-card a {
+	display: block;
 	text-align: center;
 	margin-top: 1rem;
 }
@@ -818,6 +819,7 @@ main {
 	width: calc(100% + 2rem);
 	padding-block: 0.5rem;
 	transition: 0.3s ease;
+	transform: translate(-1rem);
 }
 .product-card button:hover,
 .product-card a:hover {
