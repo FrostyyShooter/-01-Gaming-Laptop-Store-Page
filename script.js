@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const categoryMenuContainer = document.querySelector(
 		".category-menu-container"
 	);
+	const categoryMenuList = document.getElementById("categoryMenu");
 
 	account.addEventListener("click", function (event) {
 		event.stopPropagation();
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		event.stopPropagation();
 		categoryMenuContainer.classList.toggle("visible");
 		categoryMenu.classList.toggle("category-menu-visible");
-		if (categoryMenuContainer.classList.contains("visible")) {
+		if (categoryMenu.classList.contains("category-menu-visible")) {
 			document.getElementById("categoryButtonIcon").style.transform =
 				"rotate(0deg)";
 			document.getElementById("categoryButton").style.backgroundColor =
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				"var(--menu-text-color)";
 			document.getElementById("categoryButtonIcon").style.fill =
 				"var(--menu-text-color)";
+			categoryMenuList.style.transform = "translateY(0)";
 		} else {
 			document.getElementById("categoryButtonIcon").style.transform =
 				"rotate(-180deg)";
@@ -46,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				"var(--text-color)";
 			document.getElementById("categoryButtonIcon").style.fill =
 				"var(--text-color)";
+			categoryMenuList.style.transform = "translateY(-160px)";
 		}
 	});
 
@@ -68,6 +71,57 @@ document.addEventListener("DOMContentLoaded", function () {
 			"var(--text-color)";
 	});
 });
+const categoryList = document.querySelector("category-list");
+const categoryFirstTree = document.getElementById("categoryFirstTree");
+const categorySecondTree = document.getElementById("categorySecondTree");
+let listBackground = false;
+
+const categories = [
+	{ id: "hardware", listId: "hardwareList" },
+	{ id: "pc", listId: "pcList" },
+	{ id: "laptop", listId: "laptopList" },
+	{ id: "gaming", listId: "gamingList" },
+	{ id: "software", listId: "softwareList" },
+];
+
+categories.forEach((category) => {
+	const categoryElement = document.getElementById(category.id);
+	const listElement = document.getElementById(category.listId);
+
+	categoryElement.addEventListener("mouseover", () => {
+		categoryElement.classList.add("menu-hover");
+		listElement.classList.add("visible");
+		setBackground(true);
+	});
+
+	listElement.addEventListener("mouseover", () => {
+		categoryElement.classList.add("menu-hover");
+		listElement.classList.add("visible");
+		setBackground(true);
+	});
+
+	categoryElement.addEventListener("mouseleave", () => {
+		categoryElement.classList.remove("menu-hover");
+		listElement.classList.remove("visible");
+		setBackground(false);
+	});
+
+	listElement.addEventListener("mouseleave", () => {
+		categoryElement.classList.remove("menu-hover");
+		listElement.classList.remove("visible");
+		setBackground(false);
+	});
+});
+
+function setBackground(state) {
+	listBackground = state;
+	categorySecondTree.style.transform = state
+		? "translateX(calc(20ch - 1px))"
+		: "translateX(0)";
+	categorySecondTree.style.borderBottomRightRadius = state ? "5px" : "5px";
+	categorySecondTree.style.borderBottomLeftRadius = state ? "0" : "5px";
+	categoryFirstTree.style.borderBottomRightRadius = state ? "0" : "5px";
+}
 
 // Light/Dark Mode
 document.addEventListener("DOMContentLoaded", function () {
@@ -131,123 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // account sign up
 
 // wishlist
-
-document.addEventListener("DOMContentLoaded", function () {
-	const categoryHardware = document.getElementById("hardware");
-	const hardwareList = document.getElementById("hardwareList");
-	categoryHardware.addEventListener("mouseover", function () {
-		categoryHardware.classList.add("menu-hover");
-		hardwareList.classList.add("visible");
-		hardwareList.style.opacity = 1;
-	});
-	hardwareList.addEventListener("mouseover", function () {
-		categoryHardware.classList.add("menu-hover");
-		hardwareList.classList.add("visible");
-		hardwareList.style.opacity = 1;
-	});
-	categoryHardware.addEventListener("mouseleave", function () {
-		categoryHardware.classList.remove("menu-hover");
-		hardwareList.classList.remove("visible");
-		hardwareList.style.opacity = 0;
-	});
-	hardwareList.addEventListener("mouseleave", function () {
-		categoryHardware.classList.remove("menu-hover");
-		hardwareList.classList.remove("visible");
-		hardwareList.style.opacity = 0;
-	});
-
-	const categoryPc = document.getElementById("pc");
-	const pcList = document.getElementById("pcList");
-	categoryPc.addEventListener("mouseover", function () {
-		categoryPc.classList.add("menu-hover");
-		pcList.classList.add("visible");
-		pcList.style.opacity = 1;
-	});
-	pcList.addEventListener("mouseover", function () {
-		categoryPc.classList.add("menu-hover");
-		pcList.classList.add("visible");
-		pcList.style.opacity = 1;
-	});
-	categoryPc.addEventListener("mouseleave", function () {
-		categoryPc.classList.remove("menu-hover");
-		pcList.classList.remove("visible");
-		pcList.style.opacity = 0;
-	});
-	pcList.addEventListener("mouseleave", function () {
-		categoryPc.classList.remove("menu-hover");
-		pcList.classList.remove("visible");
-		pcList.style.opacity = 0;
-	});
-
-	const categoryLaptop = document.getElementById("laptop");
-	const laptopList = document.getElementById("laptopList");
-	categoryLaptop.addEventListener("mouseover", function () {
-		categoryLaptop.classList.add("menu-hover");
-		laptopList.classList.add("visible");
-		laptopList.style.opacity = 1;
-	});
-	laptopList.addEventListener("mouseover", function () {
-		categoryLaptop.classList.add("menu-hover");
-		laptopList.classList.add("visible");
-		laptopList.style.opacity = 1;
-	});
-	categoryLaptop.addEventListener("mouseleave", function () {
-		categoryLaptop.classList.remove("menu-hover");
-		laptopList.classList.remove("visible");
-		laptopList.style.opacity = 0;
-	});
-	laptopList.addEventListener("mouseleave", function () {
-		categoryLaptop.classList.remove("menu-hover");
-		laptopList.classList.remove("visible");
-		laptopList.style.opacity = 0;
-	});
-
-	const categoryGaming = document.getElementById("gaming");
-	const gamingList = document.getElementById("gamingList");
-	categoryGaming.addEventListener("mouseover", function () {
-		categoryGaming.classList.add("menu-hover");
-		gamingList.classList.add("visible");
-		gamingList.style.opacity = 1;
-	});
-	gamingList.addEventListener("mouseover", function () {
-		categoryGaming.classList.add("menu-hover");
-		gamingList.classList.add("visible");
-		gamingList.style.opacity = 1;
-	});
-	categoryGaming.addEventListener("mouseleave", function () {
-		categoryGaming.classList.remove("menu-hover");
-		gamingList.classList.remove("visible");
-		gamingList.style.opacity = 0;
-	});
-	gamingList.addEventListener("mouseleave", function () {
-		categoryGaming.classList.remove("menu-hover");
-		gamingList.classList.remove("visible");
-		gamingList.style.opacity = 0;
-	});
-
-	const categorySoftware = document.getElementById("software");
-	const softwareList = document.getElementById("softwareList");
-	categorySoftware.addEventListener("mouseover", function () {
-		categorySoftware.classList.add("menu-hover");
-		softwareList.classList.add("visible");
-		softwareList.style.opacity = 1;
-	});
-	softwareList.addEventListener("mouseover", function () {
-		categorySoftware.classList.add("menu-hover");
-		softwareList.classList.add("visible");
-		softwareList.style.opacity = 1;
-	});
-	categorySoftware.addEventListener("mouseleave", function () {
-		categorySoftware.classList.remove("menu-hover");
-		softwareList.classList.remove("visible");
-		softwareList.style.opacity = 0;
-	});
-	softwareList.addEventListener("mouseleave", function () {
-		categorySoftware.classList.remove("menu-hover");
-		softwareList.classList.remove("visible");
-		softwareList.style.opacity = 0;
-	});
-});
 
 document.addEventListener("DOMContentLoaded", function () {
 	const filters = document.querySelectorAll(
