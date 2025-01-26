@@ -7,6 +7,30 @@ document.addEventListener("DOMContentLoaded", function () {
 		".category-menu-container"
 	);
 	const categoryMenuList = document.getElementById("categoryMenu");
+	const categoryButtonIcon = document.getElementById("categoryButtonIcon");
+	const categoryButton = document.getElementById("categoryButton");
+
+	const toggleCategoryMenu = (isVisible) => {
+		categoryMenu.classList.toggle("category-menu-visible", isVisible);
+		categoryMenuContainer.classList.toggle("visible", isVisible);
+		categoryButtonIcon.style.transform = isVisible
+			? "rotate(0deg)"
+			: "rotate(-180deg)";
+		categoryButton.style.backgroundColor = isVisible
+			? "var(--menu-background)"
+			: "var(--category-button)";
+		categoryButton.style.borderBottomRightRadius = isVisible ? 0 : "5px";
+		categoryButton.style.borderBottomLeftRadius = isVisible ? 0 : "5px";
+		categoryButton.style.color = isVisible
+			? "var(--menu-text-color)"
+			: "var(--text-color)";
+		categoryButtonIcon.style.fill = isVisible
+			? "var(--menu-text-color)"
+			: "var(--text-color)";
+		categoryMenuList.style.transform = isVisible
+			? "translateY(0)"
+			: "translateY(-160px)";
+	};
 
 	account.addEventListener("click", function (event) {
 		event.stopPropagation();
@@ -15,62 +39,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	category.addEventListener("click", function (event) {
 		event.stopPropagation();
-		categoryMenuContainer.classList.toggle("visible");
-		categoryMenu.classList.toggle("category-menu-visible");
-		if (categoryMenu.classList.contains("category-menu-visible")) {
-			document.getElementById("categoryButtonIcon").style.transform =
-				"rotate(0deg)";
-			document.getElementById("categoryButton").style.backgroundColor =
-				"var(--menu-background)";
-			document.getElementById(
-				"categoryButton"
-			).style.borderBottomRightRadius = 0;
-			document.getElementById(
-				"categoryButton"
-			).style.borderBottomLeftRadius = 0;
-			document.getElementById("categoryButton").style.color =
-				"var(--menu-text-color)";
-			document.getElementById("categoryButtonIcon").style.fill =
-				"var(--menu-text-color)";
-			categoryMenuList.style.transform = "translateY(0)";
-		} else {
-			document.getElementById("categoryButtonIcon").style.transform =
-				"rotate(-180deg)";
-			document.getElementById("categoryButton").style.backgroundColor =
-				"var(--category-button)";
-			document.getElementById(
-				"categoryButton"
-			).style.borderBottomRightRadius = "5px";
-			document.getElementById(
-				"categoryButton"
-			).style.borderBottomLeftRadius = "5px";
-			document.getElementById("categoryButton").style.color =
-				"var(--text-color)";
-			document.getElementById("categoryButtonIcon").style.fill =
-				"var(--text-color)";
-			categoryMenuList.style.transform = "translateY(-160px)";
-		}
+		const isVisible = !categoryMenu.classList.contains(
+			"category-menu-visible"
+		);
+		toggleCategoryMenu(isVisible);
 	});
 
 	document.addEventListener("click", function () {
 		accountMenu.classList.remove("visible");
-		categoryMenu.classList.remove("category-menu-visible");
-		categoryMenuContainer.classList.remove("visible");
-		document.getElementById("categoryButtonIcon").style.transform =
-			"rotate(-180deg)";
-		document.getElementById("categoryButton").style.backgroundColor =
-			"var(--category-button)";
-		document.getElementById(
-			"categoryButton"
-		).style.borderBottomRightRadius = "5px";
-		document.getElementById("categoryButton").style.borderBottomLeftRadius =
-			"5px";
-		document.getElementById("categoryButton").style.color =
-			"var(--text-color)";
-		document.getElementById("categoryButtonIcon").style.fill =
-			"var(--text-color)";
+		toggleCategoryMenu(false);
 	});
 });
+
 const categoryList = document.querySelector("category-list");
 const categoryFirstTree = document.getElementById("categoryFirstTree");
 const categorySecondTree = document.getElementById("categorySecondTree");

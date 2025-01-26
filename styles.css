@@ -515,7 +515,7 @@ form {
 	transform: rotate(180deg);
 	transition: 0.3s ease;
 }
-.test {
+.category-container {
 	position: absolute;
 	height: 1000%;
 	width: 200%;
@@ -524,7 +524,6 @@ form {
 .category-menu {
 	position: absolute;
 	z-index: 1;
-	/* visibility: hidden; */
 	transform: translateY(-160px);
 	transition: 0.3s ease;
 }
@@ -550,6 +549,7 @@ form {
 	z-index: 8;
 	background-color: var(--second-tree-color);
 	transition: 0.3s ease;
+	border-top-right-radius: 5px;
 }
 .category-list {
 	position: absolute;
@@ -570,6 +570,8 @@ form {
 }
 .category-list ul li a:hover {
 	background-color: var(--second-tree-hover-color);
+	padding-right: -1.5rem;
+	padding-left: 0.5rem;
 }
 aside {
 	position: relative;
