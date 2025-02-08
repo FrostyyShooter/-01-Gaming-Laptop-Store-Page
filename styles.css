@@ -1072,7 +1072,6 @@ main {
 	padding-block: 1rem;
 	text-align: center;
 	font-size: 1.5rem;
-	grid-row: 5;
 	grid-column: 1 / 4;
 	border: 4px solid var(--card-bt-bg-color);
 	border-radius: 1rem;
@@ -1114,6 +1113,11 @@ main {
 /* media queries */
 /* min width for normal display > below this width change all to mobile version */
 @media screen and (max-width: 1280px) {
+	.card-container {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(225px, 1fr));
+		margin: 5rem 2rem 2rem 1.3rem;
+	}
 	.header-wrapper h1 {
 		font-size: 3rem;
 		text-wrap: nowrap;
@@ -1124,6 +1128,17 @@ main {
 }
 
 @media screen and (max-width: 800px) {
+	.card-container {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(300px, 1fr));
+		margin-inline: 2.7rem;
+	}
+	.scrollToTop {
+		grid-column: 1 / 3;
+	}
+	.filter-list {
+		display: none;
+	}
 	.header-img {
 		height: 10vh;
 	}
@@ -1137,6 +1152,13 @@ main {
 }
 
 @media screen and (max-width: 480px) {
+	.card-container {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+	.scrollToTop {
+		grid-column: 1 / 2;
+	}
 	nav {
 		display: none;
 	}
