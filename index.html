@@ -66,7 +66,9 @@
 						autocomplete="current-password"
 						required />
 					<button type="submit">Sign In</button>
-					<button>Have no account? Sign up here!</button>
+					<button type="button" id="switchToSignUp">
+						Have no account? Sign up here!
+					</button>
 				</form>
 			</div>
 			<div class="account-registration" id="account-registration">
@@ -106,7 +108,9 @@
 					<input type="date" id="dob" name="dob" />
 					<div id="errorMessage"></div>
 					<button type="submit">Register</button>
-					<button>Have an account? Sign in here!</button>
+					<button type="button" id="switchToSignIn">
+						Have an account? Sign in here!
+					</button>
 				</form>
 			</div>
 		</div>
@@ -169,7 +173,10 @@
 					</div>
 					<!-- this should be a dropdown menu with a heart icon/symbol -->
 					<div class="wishlist-menu">
-						<button id="wishlistButton" class="wishlistButton">
+						<button
+							id="wishlistButton"
+							class="wishlistButton"
+							href="#">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 -960 960 960">
@@ -180,7 +187,7 @@
 					</div>
 					<!-- this should be a dropdown menu with a cart icon/symbol -->
 					<div class="cart-menu">
-						<button id="cartButton" class="cartButton">
+						<button id="cartButton" class="cart-button">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 -960 960 960">
@@ -188,11 +195,7 @@
 									d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
 							</svg>
 						</button>
-						<div class="cart-list" style="display: none">
-							<!-- <div class="cart-list"> -->
-							<!-- add dynamic list items that will be added through js when the customer adds something to there cart -->
-							<button>View cart</button>
-						</div>
+
 						<div class="cart-container">
 							<div class="cart-content">
 								<div class="cart-header">
@@ -213,24 +216,43 @@
 											src="assets/images/ROG Laptop/2025/ROG Strix G16.png"
 											alt="ROG Strix G16 (2025) G615LW-S5058W" />
 										<div class="cart-item-info">
-											<h3>ROG Strix G16 (2025)</h3>
-											<span>&#8364;</span>
-											<span>1</span>
+											<h3>
+												ROG Strix G16 (2025)
+												G615LW-S5058W
+											</h3>
+											<div class="cart-quantity">
+												<button
+													id="decreaseQuantity"
+													type="button">
+													-
+												</button>
+												<span class="quantity">1</span>
+												<button
+													id="increaseQuantity"
+													type="button">
+													+
+												</button>
+											</div>
+											<div class="cart-price">
+												<span>&#8364;</span>
+												<span>1000,-</span>
+											</div>
 										</div>
-										<button>Remove</button>
-									</div>
-									<div class="cart-item">
-										<img
-											src="assets/images/ROG Laptop/2025/ROG Strix G16.png"
-											alt="ROG Strix G16 (2025) G615LW-S5058W" />
-										<div class="cart-item-info">
-											<h3>ROG Strix G16 (2025)</h3>
-											<span>&#8364;</span>
-											<span>1</span>
-										</div>
-										<button>Remove</button>
+										<button
+											id="removeFromCart"
+											class="remove-from-cart">
+											Remove from cart
+										</button>
 									</div> -->
 								</div>
+								<div class="cart-total">
+									<span>Total:</span>
+									<span>&#8364;</span>
+									<span></span>
+								</div>
+								<button id="goToCart">
+									View shopping cart
+								</button>
 							</div>
 						</div>
 					</div>
@@ -482,33 +504,61 @@
 					</div>
 					<div class="products" id="products">
 						<div class="sort-menu">
-							<span>Sort by:</span>
-							<span>Date: Newest first</span>
-							<ul style="display: none">
-								<li>Date: Newest first</li>
-								<li>Date: Oldest first</li>
-								<li>Price: Highest first</li>
-								<li>Price: Lowest first</li>
+							<span id="sortMenuToggle" class="sort-menu-toggle"
+								>Sort by:</span
+							>
+							<span id="currentSort" class="current-sort"
+								>Date: Newest first</span
+							>
+							<ul id="sortMenuList" style="display: none">
+								<li data-sort="date-newest">
+									Date: Newest first
+								</li>
+								<li data-sort="date-oldest">
+									Date: Oldest first
+								</li>
+								<li data-sort="screen-size-biggest">
+									Screen Size: Biggest first
+								</li>
+								<li data-sort="screen-size-smallest">
+									Screen Size: Smallest first
+								</li>
+								<li data-sort="cpu">CPU</li>
+								<li data-sort="gpu">GPU</li>
+								<li data-sort="storage-biggest">
+									Storage: Biggest first
+								</li>
+								<li data-sort="storage-smallest">
+									Storage: Smallest first
+								</li>
+								<li data-sort="ram-biggest">
+									RAM: Biggest first
+								</li>
+								<li data-sort="ram-smallest">
+									RAM: Smallest first
+								</li>
 							</ul>
 						</div>
 						<!-- want at least 10 cards -->
 						<div class="card-container">
 							<div
 								class="product-card"
+								data-name="ROG Strix G16 (2025) G615LW-S5058W"
 								data-id="G615LW-S5058W"
 								data-screen-size="16inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5080"
 								data-storage="gb1024"
 								data-ram="gb32"
-								data-date="202501"
-								data-price="">
+								data-date="2025-01-01"
+								data-price="1999">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Strix G16.png"
 									alt="ROG Strix G16 (2025) G615LW-S5058W" />
 								<h2>ROG Strix G16 (2025)<br />G615LW-S5058W</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1999,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -534,20 +584,22 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Strix G16 (2025) G615LR-S5072W"
 								data-id="G615LR-S5072W"
 								data-screen-size="16inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5070"
 								data-storage="gb1024"
 								data-ram="gb32"
-								data-date="202502"
-								data-price="">
+								data-date="2025-01-02"
+								data-price="1749">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Strix G16.png"
 									alt="ROG Strix G16 (2025) G615LR-S5072W" />
 								<h2>ROG Strix G16 (2025)<br />G615LR-S5072W</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1749,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -573,20 +625,22 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Strix G16 (2025) G615LR-S5160W"
 								data-id="G615LR-S5160W"
 								data-screen-size="16inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5070"
 								data-storage="gb1024"
 								data-ram="gb32"
-								data-date="202503"
-								data-price="">
+								data-date="2025-01-03"
+								data-price="1749">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Strix G16.png"
 									alt="ROG Strix G16 (2025) G615LR-S5160W" />
 								<h2>ROG Strix G16 (2025)<br />G615LR-S5160W</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1749,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -612,20 +666,22 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Strix G18 (2025) G815LW-S9076W"
 								data-id="G815LW-S9076W"
 								data-screen-size="18inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5080"
 								data-storage="gb1024"
 								data-ram="gb32"
-								data-date="202504"
-								data-price="">
+								data-date="2025-01-04"
+								data-price="1999">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Strix G18.png"
 									alt="ROG Strix G18 (2025) G815LW-S9076W" />
 								<h2>ROG Strix G18 (2025)<br />G815LW-S9076W</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1999,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -651,23 +707,26 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Strix G18 (2025)
+								G815LR-S9109W"
 								data-id="G815LR-S9109W"
 								data-screen-size="18inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5070"
 								data-storage="gb1024"
 								data-ram="gb32"
-								data-date="202505"
-								data-price="">
+								data-date="2025-01-05"
+								data-price="1749">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Strix G18.png"
 									alt="ROG Strix G18 (2025)
 								G815LR-S9109W" />
 								<h2>
 									ROG Strix G18 (2025) <br />G815LR-S9109W
 								</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1749,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -693,23 +752,25 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Strix G18 (2025) G815LR-S9005W"
 								data-id="G815LR-S9005W"
 								data-screen-size="18inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5070"
 								data-storage="gb2048"
 								data-ram="gb16"
-								data-date="202506"
-								data-price="">
+								data-date="2025-01-06"
+								data-price="1749">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Strix G18.png"
 									alt="ROG Strix G18 (2025)
 								G815LR-S9005W" />
 								<h2>
 									ROG Strix G18 (2025) <br />G815LR-S9005W
 								</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1749,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -735,22 +796,24 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Zephyrus G16 (2025) GU605 GU605CX-QR075W"
 								data-id="GU605CX-QR075W"
 								data-screen-size="16inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5090"
 								data-storage="gb2048"
 								data-ram="gb64"
-								data-date="202507"
-								data-price="">
+								data-date="2025-01-07"
+								data-price="2299">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Zephyrus G14 B.png"
 									alt="ROG Zephyrus G16 (2025) GU605 GU605CX-QR075W" />
 								<h2>
 									ROG Zephyrus G16 (2025)<br />GU605<br />GU605CX-QR075W
 								</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 2299,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -775,23 +838,25 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Zephyrus G16 (2025) GU605 GU605CW-QR087W"
 								data-id="GU605CW-QR087W"
 								data-screen-size="16inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5080"
 								data-storage="gb2048"
 								data-ram="gb32"
-								data-date="202508"
-								data-price="">
+								data-date="2025-01-08"
+								data-price="1999">
 								>
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Zephyrus G14 B.png"
 									alt="ROG Zephyrus G16 (2025) GU605 GU605CW-QR087W" />
 								<h2>
 									ROG Zephyrus G16 (2025)<br />GU605<br />GU605CW-QR087W
 								</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1999,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -816,23 +881,24 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Zephyrus G16 (2025) GU605 GU605CR-QR112W"
 								data-id="GU605CR-QR112W"
 								data-screen-size="16inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5070"
 								data-storage="gb2048"
 								data-ram="gb32"
-								data-date="202509"
-								data-price="">
-								>
+								data-date="2025-01-09"
+								data-price="1749">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Zephyrus G14 B.png"
 									alt="ROG Zephyrus G16 (2025) GU605 GU605CR-QR112W" />
 								<h2>
 									ROG Zephyrus G16 (2025)<br />GU605<br />GU605CR-QR112W
 								</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1749,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -857,22 +923,24 @@
 							</div>
 							<div
 								class="product-card"
+								data-name="ROG Zephyrus G16 (2025) GU605 GU605CR-QR110W"
 								data-id="GU605CR-QR110W"
 								data-screen-size="16inch"
 								data-cpu="ultra9"
 								data-gpu="rtx5070"
 								data-storage="gb2048"
 								data-ram="gb32"
-								data-date="202510"
-								data-price="">
+								data-date="2025-01-10"
+								data-price="1749">
 								<span>NEW</span>
 								<img
+									class="product-image"
 									src="assets/images/ROG Laptop/2025/ROG Zephyrus G14 W.png"
 									alt="ROG Zephyrus G16 (2025) GU605 GU605CR-QR110W" />
 								<h2>
 									ROG Zephyrus G16 (2025)<br />GU605<br />GU605CR-QR110W
 								</h2>
-								<span class="price">&#8364;</span>
+								<span class="price">&#8364; 1749,-</span>
 								<ul>
 									<li>Windows 11 Home</li>
 									<li>
@@ -897,6 +965,7 @@
 							</div>
 							<!-- <div
 								class="product-card"
+								data-name=""
 								data-id="product"
 								data-screen-size="inch"
 								data-cpu=""
@@ -906,7 +975,8 @@
 								data-date=""
 								data-price="">
 								<span>NEW</span>
-								<img src="" alt="" />
+								<img class="product-image"
+								src="" alt="" />
 								<h2>
 									<br />
 								</h2>
