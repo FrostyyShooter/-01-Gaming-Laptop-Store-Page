@@ -10,16 +10,16 @@ notes: might have some issues with the alignment of the before and after element
 - integrate the filter menu
     add the javascript code for the menu (maybe in a new file?)
 
----------------------------------------------------------------------------
---------------------------------NECESSARY!!!-------------------------------
-------------------------------NEED TO DO THIS------------------------------
--------------------------↓↓↓↓↓-----↓↓↓↓↓-----↓↓↓↓↓-------------------------
-
 - finish the menu
     add all the list elements and animations and the javascript code
 
 - integrate the sort by menu
     add the content, styling and the javascript code for the menu
+
+---------------------------------------------------------------------------
+--------------------------------NECESSARY!!!-------------------------------
+------------------------------NEED TO DO THIS------------------------------
+-------------------------↓↓↓↓↓-----↓↓↓↓↓-----↓↓↓↓↓-------------------------
 
 - add the footer
     add the content and styling for the footer
