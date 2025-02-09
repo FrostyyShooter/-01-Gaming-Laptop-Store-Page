@@ -885,6 +885,11 @@ main {
 	background-color: var(--main-content-background);
 }
 .filter-list {
+	position: sticky;
+	top: 102px;
+	height: calc(100vh - 102px);
+	z-index: 100;
+	height: calc();
 	grid-column: 1;
 	grid-row: 1 / 3;
 	min-width: 20ch;
