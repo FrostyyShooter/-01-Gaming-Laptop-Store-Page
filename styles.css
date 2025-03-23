@@ -216,9 +216,24 @@ form {
 	fill: var(--text-color);
 	transition: fill 0.2s;
 }
-.searchButton:hover {
+.searchButton:hover,
+.searchButtonPhone:hover {
 	cursor: pointer;
 	fill: var(--hover-color);
+}
+.searchButtonPhone {
+	display: none;
+	background-color: transparent;
+	fill: var(--text-color);
+	border: none;
+	transition: fill 0.2s;
+}
+.nav-center-content {
+	margin-top: 0.3rem;
+	margin-left: auto;
+}
+.nav-right-content {
+	margin-inline-start: 1rem;
 }
 .accountButton,
 .wishlistButton,
@@ -962,6 +977,9 @@ main {
 	align-items: center;
 	font-size: 1rem;
 	color: var(--text-color);
+	background-color: blue;
+	border-top-right-radius: 0.3rem;
+	border-top-left-radius: 0.3rem;
 	cursor: pointer;
 	padding-left: 0.5rem;
 }
@@ -1139,10 +1157,26 @@ main {
 		height: 10rem;
 	}
 }
-
+@media screen and (max-width: 780px) {
+	.pathway {
+		display: none;
+	}
+	.nav-center-content form {
+		display: none;
+	}
+	.nav-right-content {
+		margin-inline-start: 0.3rem;
+	}
+	.searchButtonPhone {
+		display: block;
+	}
+}
 @media screen and (max-width: 700px) {
+	.content-container {
+		grid-template-columns: 1fr;
+	}
 	.card-container {
-		grid-template-columns: repeat(1, minmax(225px, 1fr));
+		grid-template-columns: 1fr;
 	}
 	.header-wrapper {
 		flex-direction: column;

@@ -21,6 +21,8 @@ notes: might have some issues with the alignment of the before and after element
 ------------------------------NEED TO DO THIS------------------------------
 -------------------------↓↓↓↓↓-----↓↓↓↓↓-----↓↓↓↓↓-------------------------
 
+- responsive layout
+
 - add the footer
     add the content and styling for the footer
 
